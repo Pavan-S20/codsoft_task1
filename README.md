@@ -1,2 +1,63 @@
 # codsoft_task1
-This program is generate a random number within a specified range, such as 1 to 100. 
+#This program is generate a random number within a specified range, such as 1 to 100. 
+
+import java.util.*;
+import java.util.Random;
+
+
+public class NumberGame 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please Enter Your Name?");
+        String name = sc.nextLine();   //Read name
+
+        
+        System.out.println("Well,"+ name +", I am thinking of a number between 0 and 100!");
+        int myNumber = getRandomNumber(0, 100);
+
+
+        for (int i = 1; i < 6; i++)     //For user limited chance.
+        {
+            Scanner sc2 = new Scanner(System.in);
+            System.out.println("Guess a  number between 0-100.");
+            int yourGuess = sc2.nextInt();        //This is for guess number
+
+
+
+            if(yourGuess == myNumber)
+            {
+                System.out.println("CONGRATULATION..! You guess correctly!");
+                break;
+            }
+            else if(yourGuess < myNumber)
+            {
+                //If the user guessed lower than the answer
+                System.out.println("Your guess is too low, select a number higher than it!");
+            }
+            else if (yourGuess > myNumber)
+            {
+                //If the user guessed higher than the answer
+                System.out.println("Your guess is too high, select a number lower than it!");
+            }
+
+
+
+            if ( i == 5 )
+            {
+                // If the user gets the answer wrong too many times
+                System.out.println();
+                System.out.println("Nope. The number I was thinking of was " + myNumber + "!");
+            }
+        }
+    }
+
+
+
+    public static int getRandomNumber(int min, int max)
+    {
+        Random random = new Random();
+        return random.ints(min,max).findFirst().getAsInt();
+    }
+}
