@@ -1,5 +1,4 @@
-# codsoft_task1
-// Number Game 
+# codsoft_task1 
 
 import java.util.*;
 import java.util.Random;
